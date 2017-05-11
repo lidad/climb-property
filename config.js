@@ -1,3 +1,3 @@
 module.exports = {
-  url: 'http://sh.lianjia.com/chengjiao/'
+  url: 'http://sh.lianjia.com/chengjiao/d'
 }
