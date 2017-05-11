@@ -37,15 +37,16 @@ function getRoundData(url, index, operand) {
     const pageIndex = index + i;
     return getOnePage(url + pageIndex);
   })
-  return Promise.all(prs).then((res) => {
-    res.forEach((result) => {
-      console.log(result);
-    })
-  })
+  return Promise.all(prs);
 }
-let index = config.startIndex
+let index = config.startIndex;
 while (index < config.endIndex) {
-  getRoundData(config.url, index, config.eachOperand);
+  getRoundData(config.url, index, config.eachOperand).then((res) => {
+    res.forEach(data => {
+      if (data.length)
+        console.log(data)
+    })
+  });
   //index += result.length;反爬虫会返回空的，若是空的则继续在这里
   index += config.eachOperand;
 }
