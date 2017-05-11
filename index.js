@@ -32,17 +32,20 @@ function getOnePage(url) {
   })
 }
 
-let index = 1;
-let url = '';
-let prs = [];
-for (; index < 5; index++) {
-  url = config.url + index;
-  prs.push(getOnePage(url))
-}
-console.log('loading....')
-
-Promise.all(prs).then((res) => {
-  res.forEach((result) => {
-    console.log(result);
+function getRoundData(url, index, operand) {
+  const prs = Array.apply(null, {length: operand}).map((item, i) => {
+    const pageIndex = index + i;
+    return getOnePage(url + pageIndex);
   })
-})
+  return Promise.all(prs).then((res) => {
+    res.forEach((result) => {
+      console.log(result);
+    })
+  })
+}
+let index = config.startIndex
+while (index < config.endIndex) {
+  getRoundData(config.url, index, config.eachOperand);
+  //index += result.length;反爬虫会返回空的，若是空的则继续在这里
+  index += config.eachOperand;
+}
