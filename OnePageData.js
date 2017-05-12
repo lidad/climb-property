@@ -1,6 +1,6 @@
 const cheerio = require('cheerio');
 const request = require('superagent');
-// const http = require('http');
+const http = require('http');
 
 function getHtml(url) {
   return new Promise((resolve, reject) => {
@@ -30,7 +30,23 @@ function getShanghai(url) {
   })
 }
 
-function getHangzhou() {}
+function getHangzhou(url) {
+  return getHtml(url).then(($) => {
+    let result = [];
+    $('.listContent li').each((i, block) => {
+      const $block = $(block);
+      const item = {
+        homeModel: $(block).find('.title').text() + $(block).find('.flood .positionIcon').text(),
+        dealDate: $(block).find('.address .dealDate').text(),
+        dealAmount: $(block).find('.address .totalPrice').text(),
+        perMeter: $(block).find('.flood .unitPrice').text(),
+        goodsInfo: $(block).find('.dealCycleeInfo .dealCycleTxt').text()
+      }
+      result.push(item)
+    });
+    return result;
+  })
+}
 
 exports.shanghaiOnePage = getShanghai;
 exports.hangZhouOnePage = getHangzhou;
