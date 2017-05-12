@@ -1,10 +1,10 @@
-const {shanghaiConfig} = require('./config');
-const {shanghaiOnePage} = require('./OnePageData');
+const {hangzhouConfig} = require('./config');
+const {hangZhouOnePage} = require('./OnePageData');
 const {getRoundData} = require('./OneRoundData');
 
 let index = shanghaiConfig.startIndex;
 while (index < shanghaiConfig.endIndex) {
-  getRoundData(shanghaiConfig.url, index, shanghaiConfig.eachOperand, shanghaiOnePage).then((res) => {
+  getRoundData(shanghaiConfig.url, index, shanghaiConfig.eachOperand, hangZhouOnePage).then((res) => {
     res.forEach(data => {
       if (data.length)
         console.log(data)

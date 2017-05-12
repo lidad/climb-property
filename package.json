@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "shanghai": "babel-watch -w . climbShanghai"
+    "shanghai": "babel-watch -w . climbShanghai",
+    "hangzhou": "babel-watch -w . climbHangzhou"
   },
   "author": "lidad",
   "license": "ISC",
