@@ -1,15 +1,20 @@
 const {hangzhouConfig} = require('./config');
 const {hangZhouOnePage} = require('./OnePageData');
 const {getRoundData} = require('./OneRoundData');
+const {create} = require('./mongo');
 
 let index = hangzhouConfig.startIndex;
 while (index < hangzhouConfig.endIndex) {
   getRoundData(hangzhouConfig.url, index, hangzhouConfig.eachOperand, hangZhouOnePage).then((res) => {
-    res.forEach(data => {
-      if (data.length)
+    res.forEach(datas => {
+      console.log(datas)
+      datas.forEach(data => {
         console.log(data)
+        // create(data).then(() => {
+        //   console.log('saved!');
+        // });
+      })
     })
   });
-  //index += result.length;反爬虫会返回空的，若是空的则继续在这里
   index += hangzhouConfig.eachOperand;
 }

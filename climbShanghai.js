@@ -4,7 +4,7 @@ const {getRoundData} = require('./OneRoundData');
 
 let index = shanghaiConfig.startIndex;
 while (index < shanghaiConfig.endIndex) {
-  getRoundData(shanghaiConfig.url, index, shanghaiConfig.eachOperand, shanghaiOnePage).then((res) => {
+  getRoundData(shanghaiConfig.url, index, shanghaiConfig.eachOperand).then((res) => {
     res.forEach(data => {
       if (data.length)
         console.log(data)

@@ -10,5 +10,8 @@ module.exports = {
     startIndex: 1,
     endIndex: 30,
     eachOperand: 4
+  },
+  mongodb: {
+    url: 'mongodb://localhost:27017/climbProperty'
   }
 }
