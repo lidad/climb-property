@@ -20,9 +20,31 @@ const HZDeal = mongolass.model('HZDeal', {
     type: 'string'
   }
 })
+const SHDeal = mongolass.model('SHDeal', {
+  homeModel: {
+    type: 'string'
+  },
+  dealDate: {
+    type: 'string'
+  },
+  dealAmount: {
+    type: 'string'
+  },
+  perMeter: {
+    type: 'string'
+  },
+  zone: {
+    type: 'string'
+  }
+})
+
+// SHDeal.index({_id: 1}).exec();
 
 module.exports = {
-  create: function create(hzDdeal) {
+  createSH: function create(shDdeal) {
+    return SHDeal.create(shDdeal).exec();
+  },
+  createHZ: function create(hzDdeal) {
     return HZDeal.create(hzDdeal).exec();
   }
 }

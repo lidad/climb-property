@@ -1,7 +1,7 @@
 const {hangzhouConfig} = require('./config');
 const {hangZhouOnePage} = require('./OnePageData');
 const {getRoundData} = require('./OneRoundData');
-const {create} = require('./mongo');
+const {createHZ} = require('./mongo');
 
 let index = hangzhouConfig.startIndex;
 while (index < hangzhouConfig.endIndex) {
@@ -10,7 +10,7 @@ while (index < hangzhouConfig.endIndex) {
       console.log(datas)
       datas.forEach(data => {
         console.log(data)
-        // create(data).then(() => {
+        // createHZ(data).then(() => {
         //   console.log('saved!');
         // });
       })
