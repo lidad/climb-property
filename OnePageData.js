@@ -1,8 +1,6 @@
 const cheerio = require('cheerio');
-const http = require('http');
 const request = require('superagent');
-
-const config = require('./config');
+// const http = require('http');
 
 function getHtml(url) {
   return new Promise((resolve, reject) => {
@@ -14,7 +12,7 @@ function getHtml(url) {
   })
 }
 
-function getOnePage(url) {
+function getShanghai(url) {
   return getHtml(url).then(($) => {
     let result = [];
     $('.info-table').each((i, block) => {
@@ -32,21 +30,7 @@ function getOnePage(url) {
   })
 }
 
-function getRoundData(url, index, operand) {
-  const prs = Array.apply(null, {length: operand}).map((item, i) => {
-    const pageIndex = index + i;
-    return getOnePage(url + pageIndex);
-  })
-  return Promise.all(prs);
-}
-let index = config.startIndex;
-while (index < config.endIndex) {
-  getRoundData(config.url, index, config.eachOperand).then((res) => {
-    res.forEach(data => {
-      if (data.length)
-        console.log(data)
-    })
-  });
-  //index += result.length;反爬虫会返回空的，若是空的则继续在这里
-  index += config.eachOperand;
-}
+function getHangzhou() {}
+
+exports.shanghaiOnePage = getShanghai;
+exports.hangZhouOnePage = getHangzhou;
