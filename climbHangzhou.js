@@ -3,26 +3,27 @@ const {hangZhouOnePage} = require('./OnePageData');
 const {getRoundData} = require('./OneRoundData');
 const {createHZ} = require('./mongo');
 
-function * climbAndSave() {
-  const index = yield;
-  getRoundData(hangzhouConfig.url, index, hangzhouConfig.eachOperand, hangZhouOnePage).then((res) => {
+function * climb() {
+  let index = hangzhouConfig.startIndex;
+  while (index <= hangzhouConfig.endIndex) {
+    yield getRoundData(hangzhouConfig.url, index, hangzhouConfig.eachOperand, hangZhouOnePage)
+    index += hangzhouConfig.eachOperand;
+  }
+}
+
+const c = climb();
+function save() {
+  const pro = c.next().value;
+  pro.then((res) => {
     res.forEach(datas => {
-      console.log(datas)
       datas.forEach(data => {
-        console.log(data)
         createHZ(data).then(() => {
           console.log('saved!');
         });
       })
     })
+    save()
   });
 }
 
-
-let index = hangzhouConfig.startIndex;
-while (index <= hangzhouConfig.endIndex) {
-  const cs = climbAndSave();
-  cs.next();
-  cs.next(index);
-  index += hangzhouConfig.eachOperand;
-}
+save();
