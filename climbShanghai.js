@@ -3,8 +3,8 @@ const {shanghaiOnePage} = require('./OnePageData');
 const {getRoundData} = require('./OneRoundData');
 const {createSH} = require('./mongo');
 
-let index = shanghaiConfig.startIndex;
-while (index < shanghaiConfig.endIndex) {
+function * climbAndSave() {
+  const index = yield;
   getRoundData(shanghaiConfig.url, index, shanghaiConfig.eachOperand, shanghaiOnePage).then((res) => {
     res.forEach(datas => {
       datas.forEach(data => {
@@ -15,5 +15,14 @@ while (index < shanghaiConfig.endIndex) {
       })
     })
   });
+}
+
+let index = shanghaiConfig.startIndex;
+let cs;
+let res;
+while (index < shanghaiConfig.endIndex) {
+  cs = climbAndSave();
+  cs.next();
+  cs.next(index);
   index += shanghaiConfig.eachOperand;
 }
