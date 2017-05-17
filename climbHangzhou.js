@@ -5,8 +5,17 @@ const {createHZ} = require('./mongo');
 
 function * climb() {
   let index = hangzhouConfig.startIndex;
+  let res;
   while (index <= hangzhouConfig.endIndex) {
-    yield getRoundData(hangzhouConfig.url, index, hangzhouConfig.eachOperand, hangZhouOnePage)
+    res = yield getRoundData(hangzhouConfig.url, index, hangzhouConfig.eachOperand, hangZhouOnePage);
+    res.forEach(datas => {
+      datas.forEach(data => {
+        createHZ(data).then(() => {
+          console.log('saved!');
+        });
+      })
+    })
+    yield;
     index += hangzhouConfig.eachOperand;
   }
 }
@@ -15,15 +24,9 @@ const c = climb();
 function save() {
   const pro = c.next().value;
   pro.then((res) => {
-    res.forEach(datas => {
-      datas.forEach(data => {
-        createHZ(data).then(() => {
-          console.log('saved!');
-        });
-      })
-    })
+    c.next(res);
     save()
-  });
+  })
 }
 
 save();

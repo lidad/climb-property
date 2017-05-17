@@ -5,16 +5,9 @@ const {createSH} = require('./mongo');
 
 function * climb() {
   let index = shanghaiConfig.startIndex;
+  let res;
   while (index < shanghaiConfig.endIndex) {
-    yield getRoundData(shanghaiConfig.url, index, shanghaiConfig.eachOperand, shanghaiOnePage);
-  }
-  index += shanghaiConfig.eachOperand;
-}
-
-const c = climb();
-function save() {
-  const pro = c.next().value;
-  pro.then((res) => {
+    res = yield getRoundData(shanghaiConfig.url, index, shanghaiConfig.eachOperand, shanghaiOnePage);
     res.forEach(datas => {
       datas.forEach(data => {
         createSH(data).then(() => {
@@ -22,8 +15,18 @@ function save() {
         });
       })
     })
+    yield;
+    index += shanghaiConfig.eachOperand;
+  }
+}
+
+const c = climb();
+function save() {
+  const pro = c.next().value;
+  pro.then((res) => {
+    c.next(res);
     save()
-  });
+  })
 }
 
 save();
