@@ -1,7 +1,7 @@
-const {shanghaiConfig} = require('./config');
+const {shanghaiConfig} = require('../config');
 const {shanghaiOnePage} = require('./OnePageData');
 const {getRoundData} = require('./OneRoundData');
-const {createSH} = require('./mongo');
+const {createSH} = require('../lib/mongo');
 
 function * climb() {
   let index = shanghaiConfig.startIndex;
