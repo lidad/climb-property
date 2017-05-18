@@ -2,13 +2,16 @@
 
 - 爬取链家网二手房交易信息
 - 已爬取全上海与杭州滨江区的成交信息
-- 采取MongoDB存储信息
+- MongoDB存储信息
+- express与echat搭建数据可视化服务
 
 ## 如何运行
 ```
 $ npm run install            // 安装依赖
 $ npm run climbhangzhou      // 爬取杭州滨江交易信息并写入数据库
 $ npm run climbshanghai      // 爬取上海交易信息并写入数据库
+$ npm run dev                // 以开发环境启动数据可视化服务
+$ npm run start              // 以生产环境启动数据可视化服务
 ```
 
 ## Todos
