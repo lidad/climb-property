@@ -6,9 +6,9 @@
 
 ## 如何运行
 ```
-+ $ npm run install            // 安装依赖
-+ $ npm run climbhangzhou      // 爬取杭州滨江交易信息并写入数据库
-+ $ npm run climbshanghai      // 爬取上海交易信息并写入数据库
+$ npm run install            // 安装依赖
+$ npm run climbhangzhou      // 爬取杭州滨江交易信息并写入数据库
+$ npm run climbshanghai      // 爬取上海交易信息并写入数据库
 ```
 
 ## Todos
