@@ -7,7 +7,7 @@
     "climbshanghai": "babel-watch -w . climbData/climbShanghai",
     "climbhangzhou": "babel-watch -w . climbData/climbHangzhou",
     "dev": "babel-watch -w . index",
-    "start": "NODE_ENV=production babel-node --presets es2015 -- index",
+    "start": "NODE_ENV=production babel-node --presets es2015 -- index"
   },
   "author": "lidad",
   "license": "ISC",
