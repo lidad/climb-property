@@ -1,4 +1,5 @@
 module.exports = {
+  port: 3000,
   shanghaiConfig: {
     url: 'http://sh.lianjia.com/chengjiao/d',
     startIndex: 1,

@@ -1,17 +1,26 @@
 {
   "name": "fang_analysis",
   "version": "1.0.0",
-  "description": "",
+  "description": "获取房产交易信息并可视化",
   "main": "index.js",
   "scripts": {
     "climbshanghai": "babel-watch -w . climbData/climbShanghai",
-    "climbhangzhou": "babel-watch -w . climbData/climbHangzhou"
+    "climbhangzhou": "babel-watch -w . climbData/climbHangzhou",
+    "dev": "babel-watch -w . index"
   },
   "author": "lidad",
   "license": "ISC",
   "dependencies": {
     "cheerio": "^0.22.0",
+    "connect-mongo": "^1.3.2",
+    "ejs": "^2.5.6",
+    "express": "^4.15.3",
     "mongolass": "^2.4.5",
     "superagent": "^3.5.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-watch": "^2.0.6"
   }
 }
