@@ -3,4 +3,6 @@ module.exports = (app) => {
     res.redirect('/home');
   });
   app.use('/home', require('./home'));
+  app.use('/hangzhou', require('./hangzhou'));
+  app.use('/shanghai', require('./shanghai'));
 }

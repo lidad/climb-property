@@ -1,7 +1,7 @@
 const {hangzhouConfig} = require('../config');
 const {hangZhouOnePage} = require('./OnePageData');
 const {getRoundData} = require('./OneRoundData');
-const {createHZ} = require('../lib/mongo');
+const {createHZ} = require('../models/HZModel');
 
 function * climb() {
   let index = hangzhouConfig.startIndex;

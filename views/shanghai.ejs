@@ -1,0 +1,21 @@
+<%- include('header') %>
+
+<% datas.forEach(function (data) { %>
+<section>
+  <h3><%= data.homeModel %></h3>
+  <p>
+    <%= data.dealDate %>
+  </p>
+  <p>
+    <%= data.dealAmount %>
+  </p>
+  <p>
+    <%= data.perMeter %>
+  </p>
+  <p>
+    <%= data.zone %>
+  </p>
+</section>
+<% }) %>
+
+<%- include('footer') %>
