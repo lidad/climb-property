@@ -37,8 +37,9 @@ function getHangzhou(url) {
       const $block = $(block);
       const item = {
         homeModel: $(block).find('.title').text() + $(block).find('.flood .positionIcon').text(),
+        area: $(block).find('.title').text().match(/\s\d+(\.\d*)?/g).pop() - 0,
         dealDate: $(block).find('.address .dealDate').text(),
-        dealAmount: $(block).find('.address .totalPrice').text(),
+        dealAmount: $(block).find('.address .totalPrice .number').text() - 0,
         perMeter: $(block).find('.flood .unitPrice').text(),
         goodsInfo: $(block).find('.dealCycleeInfo .dealCycleTxt').text()
       }
