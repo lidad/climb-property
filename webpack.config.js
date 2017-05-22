@@ -9,7 +9,7 @@ var BUILD_PATH = path.resolve(ROOT_PATH, 'public/js');
 var entries = {
   'hangzhou': APP_PATH + '/js/hangzhou.js'
 };
-entries.vendor = ['echarts'];
+entries.vendor = ['echarts', 'superagent'];
 
 module.exports = {
   devtool: 'source-map',
