@@ -7,7 +7,8 @@ var APP_PATH = path.resolve(ROOT_PATH, 'src');
 var BUILD_PATH = path.resolve(ROOT_PATH, 'public/js');
 
 var entries = {
-  'hangzhou': APP_PATH + '/js/hangzhou.js'
+  'hangzhou': APP_PATH + '/js/hangzhou.js',
+  'shanghai': APP_PATH + '/js/shanghai.js'
 };
 entries.vendor = ['echarts', 'superagent'];
 
