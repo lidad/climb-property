@@ -14,7 +14,7 @@ router.get('/getdata', (req, res, next) => {
       tempData.push(data.area);
       tempData.push(data.homeModel);
       tempData.push(data.dealDate);
-      tempData.push(data.perMeter.replace(/[^\d]/g, '') / 10000);
+      tempData.push(data.perMeter / 10000);
       tempData.push(data.goodsInfo);
       return tempData;
     })

@@ -14,7 +14,7 @@ router.get('/getdata', (req, res, next) => {
       tempData.push(data.homeModel.match(/\d+(\.\d+)?平/).shift().slice(0,-1));
       tempData.push(data.homeModel);
       tempData.push(data.dealDate);
-      tempData.push(data.perMeter.replace(/[^\d]/g, '') / 10000);
+      tempData.push(data.perMeter / 10000);
       tempData.push(data.zzone);
       return tempData;
     })
