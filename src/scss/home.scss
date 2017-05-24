@@ -1,0 +1,17 @@
+.home {
+  background: linear-gradient(to bottom right, #a0abb7, #3a5b7d);
+  height: 100vh;
+  width: 100vw;
+
+  .info {
+    width: 50%;
+    min-height: 600px;
+    height: 40%;
+    display: block;
+
+    .charts {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}

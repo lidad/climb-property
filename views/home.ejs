@@ -1,8 +1,13 @@
 <%- include('header')%>
-  <section>
-    <h2>此处将有房产分析报告</h2>
-    <a href="/hangzhou">杭州滨江</a>
-    <a href="/shanghai">上海</a>
-  </section>
-
-  <%- include('footer')%>
+  <div class="home">
+    <div class="link-group">
+      <a href="/hangzhou">杭州滨江</a>
+      <a href="/shanghai">上海</a>
+    </div>
+    <section class="info hangzhou">
+      <div class="charts"></div>
+    </section>
+  </div>
+  <%- include('script') %>
+  <script src="/js/home_build.min.js"></script>
+<%- include('footer')%>
