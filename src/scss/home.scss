@@ -1,13 +1,14 @@
 .home {
   background: linear-gradient(to bottom right, #a0abb7, #3a5b7d);
-  height: 100vh;
+  //min-height: 100vh;
+  height:1300px;
   width: 100vw;
 
   .info {
     width: 50%;
     min-height: 600px;
     height: 40%;
-    display: block;
+    display: inline-block;
 
     .charts {
       height: 100%;
