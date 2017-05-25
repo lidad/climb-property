@@ -14,14 +14,12 @@ for (let enKey in entries) {
 }
 
 module.exports = {
-  devtool: 'eval-source-map',
 
   entry: entries,
 
   output: {
-    path: BUILD_PATH,
     filename: '[name]_build.min.js',
-    publicPath: 'http://localhost:3000/'
+    publicPath: 'http://localhost:3000/js'
   },
 
   module: {
