@@ -11,6 +11,7 @@ $ npm run install            // 安装依赖
 $ npm run climbhangzhou      // 爬取杭州滨江交易信息并写入数据库
 $ npm run climbshanghai      // 爬取上海交易信息并写入数据库
 $ npm run dev                // 以开发环境启动数据可视化服务
+$ npm run bundlejs           // 打包静态资源
 $ npm run start              // 以生产环境启动数据可视化服务
 ```
 

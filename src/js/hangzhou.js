@@ -12,32 +12,32 @@ new Promise((resolve, reject) => {
   const {datas} = result;
   const myChart = echarts.init(document.getElementById('charts'));
   const schema = [
-  {
-    name: 'dealAmount',
-    index: 0,
-    text: '成交价'
-  }, {
-    name: 'area',
-    index: 1,
-    text: '面积'
-  }, {
-    name: 'homeModel',
-    index: 2,
-    text: ''
-  }, {
-    name: 'dealDate',
-    index: 3,
-    text: '成交日期'
-  }, {
-    name: 'perMeter',
-    index: 4,
-    text: '每平米'
-  }, {
-    name: 'info',
-    index: 5,
-    text: ''
-  }
-];
+    {
+      name: 'dealAmount',
+      index: 0,
+      text: '成交价'
+    }, {
+      name: 'area',
+      index: 1,
+      text: '面积'
+    }, {
+      name: 'homeModel',
+      index: 2,
+      text: ''
+    }, {
+      name: 'dealDate',
+      index: 3,
+      text: '成交日期'
+    }, {
+      name: 'perMeter',
+      index: 4,
+      text: '每平米'
+    }, {
+      name: 'info',
+      index: 5,
+      text: ''
+    }
+  ];
 
   const itemStyle = {
     normal: {
@@ -75,18 +75,7 @@ new Promise((resolve, reject) => {
       borderWidth: 1,
       formatter: function(obj) {
         var value = obj.value;
-        return '<div style="border-bottom: 1px solid rgba(255,255,255,.3); font-size: 18px;padding-bottom: 7px;margin-bottom: 7px">'
-        + value[2] + '</div>'
-        + schema[1].text + '：' + value[1]
-        + '<br>'
-        + schema[3].text + '：' + value[3]
-        + '<br>'
-        + schema[0].text + '：' + value[0]
-        + '<br>'
-        + schema[4].text + '：' + value[4]
-        + '<br>'
-        + value[5]
-        + '<br>';
+        return '<div style="border-bottom: 1px solid rgba(255,255,255,.3); font-size: 18px;padding-bottom: 7px;margin-bottom: 7px">' + value[2] + '</div>' + schema[1].text + '：' + value[1] + '<br>' + schema[3].text + '：' + value[3] + '<br>' + schema[0].text + '：' + value[0] + '<br>' + schema[4].text + '：' + value[4] + '<br>' + value[5] + '<br>';
       }
     },
     xAxis: {
@@ -107,12 +96,12 @@ new Promise((resolve, reject) => {
       }
     },
     toolbox: {
-        feature: {
-            dataZoom: {},
-            brush: {
-                type: ['rect', 'polygon', 'clear']
-            }
+      feature: {
+        dataZoom: {},
+        brush: {
+          type: ['rect', 'polygon', 'clear']
         }
+      }
     },
     yAxis: {
       type: 'value',
@@ -131,38 +120,41 @@ new Promise((resolve, reject) => {
       splitLine: {
         show: false
       }
-    },visualMap: [
-        {
-            left: 'right',
-            top: '10%',
-            dimension: 4,
-            min: 0,
-            max: 6,
-            itemWidth: 30,
-            itemHeight: 120,
-            calculable: true,
-            precision: 0.1,
-            text: ['圆形大小：每平米价'],
-            textGap: 30,
-            textStyle: {
-                color: '#fff'
-            },
-            inRange: {
-                symbolSize: [10, 70]
-            },
-            outOfRange: {
-                symbolSize: [10, 70],
-                color: ['rgba(255,255,255,.2)']
-            },
-            controller: {
-                inRange: {
-                    color: ['#c23531']
-                },
-                outOfRange: {
-                    color: ['#444']
-                }
-            }
+    },
+    visualMap: [
+      {
+        left: 'right',
+        top: '10%',
+        dimension: 4,
+        min: 0,
+        max: 6,
+        itemWidth: 30,
+        itemHeight: 120,
+        calculable: true,
+        precision: 0.1,
+        text: ['圆形大小：每平米价'],
+        textGap: 30,
+        textStyle: {
+          color: '#fff'
+        },
+        inRange: {
+          symbolSize: [10, 70]
+        },
+        outOfRange: {
+          symbolSize: [
+            10, 70
+          ],
+          color: ['rgba(255,255,255,.2)']
+        },
+        controller: {
+          inRange: {
+            color: ['#c23531']
+          },
+          outOfRange: {
+            color: ['#444']
+          }
         }
+      }
     ],
     series: [
       {

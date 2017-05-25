@@ -5,23 +5,15 @@ var ROOT_PATH = path.resolve(__dirname);
 var BUILD_PATH = path.resolve(ROOT_PATH, 'public/js');
 
 var entries = require('./bundle_entries');
-var hotMiddlewareScript = 'webpack-hot-middleware/client?reload=true';
-
-for (let enKey in entries) {
-  if (entries.hasOwnProperty(enKey)) {
-    entries[enKey] = [].concat(entries[enKey]).concat(hotMiddlewareScript);
-  }
-}
 
 module.exports = {
-  devtool: 'eval-source-map',
+  devtool: 'source-map',
 
   entry: entries,
 
   output: {
     path: BUILD_PATH,
-    filename: '[name]_build.min.js',
-    publicPath: 'http://localhost:3000/'
+    filename: '[name]_build.min.js'
   },
 
   module: {
@@ -34,7 +26,9 @@ module.exports = {
         }
       }, {
         test: /\.scss$/,
-        loaders: ['style-loader', 'css-loader', 'sass-loader', 'postcss-loader']
+        loaders: [
+          'style-loader', 'css-loader', 'sass-loader', 'postcss-loader'
+        ]
       }, {
         test: /\.(png|jpg)$/,
         loader: 'url?limit=40000'
@@ -42,5 +36,11 @@ module.exports = {
     ]
   },
 
-  plugins: [new webpack.HotModuleReplacementPlugin()]
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    })
+  ]
 };
