@@ -70,3 +70,7 @@ Promise.all([requsetData('/home/hangzhouMeter'), requsetData('/home/shanghaiMete
   const shanghaiChart = echarts.init(shanghaiChartsEle);
   shanghaiChart.setOption(shanghaiOptins);
 })
+
+if (module.hot) {
+  module.hot.accept();
+}

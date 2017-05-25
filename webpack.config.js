@@ -42,5 +42,5 @@ module.exports = {
     ]
   },
 
-  plugins: [new webpack.HotModuleReplacementPlugin()]
+  plugins: [new webpack.HotModuleReplacementPlugin(), new webpack.NoEmitOnErrorsPlugin()]
 };

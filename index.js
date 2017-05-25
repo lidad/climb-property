@@ -1,8 +1,8 @@
 const path = require('path');
 const express = require('express');
-const routes = require('./routes');
+const routes = require('./server/routes');
 const pkg = require('./package');
-const config = require('./config');
+const config = require('./server/config');
 
 const app = express();
 const isDev = process.env.NODE_ENV !== 'production';
@@ -13,6 +13,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.locals.env = process.env.NODE_ENV || 'dev';
 app.locals.reload = true;
+app.locals.fangAnalysis = {
+  title: '房产交易分析',
+  description: pkg.description
+}
 
 if (isDev) {
   const webpack = require('webpack');
@@ -23,18 +27,13 @@ if (isDev) {
   const compiler = webpack(webpackDevConfig);
 
   app.use(webpackDevMiddleware(compiler, {
-        publicPath: webpackDevConfig.output.publicPath,
-        noInfo: true,
-        stats: {
-            colors: true
-        }
-    }));
-    app.use(webpackHotMiddleware(compiler));
-}
-
-app.locals.fangAnalysis = {
-  title: '房产交易分析',
-  description: pkg.description
+    publicPath: webpackDevConfig.output.publicPath,
+    noInfo: true,
+    stats: {
+      colors: true
+    }
+  }));
+  app.use(webpackHotMiddleware(compiler));
 }
 
 routes(app);
