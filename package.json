@@ -4,8 +4,8 @@
   "description": "获取房产交易信息并可视化",
   "main": "index.js",
   "scripts": {
-    "climbshanghai": "babel-watch -w . climbData/climbShanghai",
-    "climbhangzhou": "babel-watch -w . climbData/climbHangzhou",
+    "climbshanghai": "babel-node --presets es2015 -- server/climbData/climbShanghai",
+    "climbhangzhou": "babel-node --presets es2015 -- server/climbData/climbHangzhou",
     "bundlejs": "webpack --config webpack.production.config.js",
     "dev": "NODE_ENV=dev babel-watch -w server index",
     "start": "NODE_ENV=production babel-node --presets es2015 -- index"
