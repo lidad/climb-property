@@ -1,16 +1,23 @@
 <%- include('header')%>
-  <div class="home">
-    <div class="link-group">
-      <a href="/hangzhou">杭州滨江</a>
-      <a href="/shanghai">上海</a>
+  <header class="header">
+    <h1 class="title">房产交易分析</h1>
+  </header>
+  <div class="wrap">
+    <nav class="nav">
+      <ul class="link-group">
+        <li> <a href="/hangzhou">杭州滨江</a></li>
+        <li> <a href="/shanghai">上海</a></li>
+      </ul>
+    </nav>
+    <div class="home">
+      <section class="info hangzhou">
+        <div class="charts"></div>
+      </section>
+      <section class="info shanghai">
+        <div class="charts"></div>
+      </section>
     </div>
-    <section class="info hangzhou">
-      <div class="charts"></div>
-    </section>
-    <section class="info shanghai">
-      <div class="charts"></div>
-    </section>
   </div>
   <%- include('script') %>
-  <script src="/js/home_build.min.js"></script>
-<%- include('footer')%>
+    <script src="/js/home_build.min.js"></script>
+    <%- include('footer')%>
