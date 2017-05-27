@@ -1,0 +1,53 @@
+.header {
+  background-color: #1d3958;
+  padding: 20px 6%; }
+  .header .title {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.9); }
+
+.wrap {
+  background-color: #1d3958;
+  text-align: left;
+  min-width: 920px; }
+
+.nav {
+  float: left;
+  vertical-align: top;
+  width: 10%;
+  height: 1300px; }
+  .nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+    .nav ul li:hover {
+      text-decoration: none; }
+    .nav ul li a {
+      color: rgba(255, 255, 255, 0.7);
+      padding: 20px 0;
+      text-align: center;
+      display: block;
+      text-decoration: none; }
+      .nav ul li a:hover {
+        background-color: #3d6188; }
+      .nav ul li a:active, .nav ul li a:hover, .nav ul li a:link, .nav ul li a:visited {
+        outline: 0; }
+
+.home {
+  padding: 2% 20px;
+  background: -webkit-gradient(linear, left top, right top, from(#3a5d82), to(#3a5b7d));
+  background: -webkit-linear-gradient(left, #3a5d82, #3a5b7d);
+  background: -o-linear-gradient(left, #3a5d82, #3a5b7d);
+  background: linear-gradient(to right, #3a5d82, #3a5b7d);
+  height: 1300px;
+  width: 90%;
+  margin-left: 10%; }
+  .home .link-group {
+    text-align: left; }
+  .home .info {
+    width: 50%;
+    min-height: 600px;
+    height: 40%;
+    display: inline-block; }
+    .home .info .charts {
+      height: 100%;
+      width: 100%; }

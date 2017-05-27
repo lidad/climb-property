@@ -1,13 +1,13 @@
 var webpack = require('webpack');
 var path = require('path');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var ROOT_PATH = path.resolve(__dirname);
-var BUILD_PATH = path.resolve(ROOT_PATH, 'public/js');
+var BUILD_PATH = path.resolve(ROOT_PATH, 'public');
 
 var entries = require('./bundle_entries');
 
 module.exports = {
-  devtool: 'source-map',
 
   entry: entries,
 
@@ -26,9 +26,10 @@ module.exports = {
         }
       }, {
         test: /\.scss$/,
-        loaders: [
-          'style-loader', 'css-loader', 'sass-loader', 'postcss-loader'
-        ]
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'sass-loader', 'postcss-loader']
+        })
       }, {
         test: /\.(png|jpg)$/,
         loader: 'url?limit=40000'
@@ -41,6 +42,7 @@ module.exports = {
       compress: {
         warnings: false
       }
-    })
+    }),
+    new ExtractTextPlugin('[name].css')
   ]
 };
