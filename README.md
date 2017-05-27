@@ -5,7 +5,13 @@
 - MongoDB存储信息
 - express与echat搭建数据可视化服务
 
+## 结果展示
+
+![image](https://raw.github.com/lidad/climb-property/master/public/home_page.jpg)
+![image](https://raw.github.com/lidad/climb-property/master/public/chart.jpg)
+
 ## 如何运行
+
 ```
 $ npm run install            // 安装依赖
 $ npm run climbhangzhou      // 爬取杭州滨江交易信息并写入数据库
