@@ -1,5 +1,7 @@
 <%- include('header') %>
+<% if(env!=='dev'){ %>
 <link rel="stylesheet" href="/shanghai.css">
+<% } %>
 
 <div class="charts" id="charts"></div>
 <%- include('script') %>
